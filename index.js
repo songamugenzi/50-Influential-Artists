@@ -208,13 +208,13 @@ const artists = [
 (1) Name of the first artist in the array
 (2) Bio of the third artist in the array */
 
-console.log(artists[0].name)
+console.log("Task1", artists[0].name)
 console.log(artists[2].bio)
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
 artists.slice(8, 9)[0].name = 'Vincent Van Gogh'
-console.log(artists[8])
+console.log("Task 2", artists[8].name)
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments:
  *     (1) artists array
@@ -228,7 +228,7 @@ console.log(artists[8])
 function getArtistByIndex(arr, index) {
   return `The artist at index ${index} is ${arr[index].name}`
 }
-console.log(getArtistByIndex(artists, 6))
+console.log("Task 3", getArtistByIndex(artists, 6))
 
 /**
 
@@ -242,38 +242,56 @@ console.log(getArtistByIndex(artists, 6))
 * it will remove Amedeo Modigliani from our dataset.
 */
 
-function removeArtist(arr, index) {
-  artists.slice(artists, artists[index]);
+//create function with (array, id)
+//remove an artist from that data set
+//run through the whole array 
+//function needs to loop through the whole dataset
+
+function removeArtist(artistArr, id) {
+  const theGreats = [...artistArr];
+  console.log("===", theGreats);
+  let deletedArtist = theGreats.splice(id, 1);
+  return `${deletedArtist[0].name} was removed from Artists data set.`
 }
-console.log(removeArtist(artists[9]))
 
-
-artists.slice(index, 1)
+console.log("Task 4", removeArtist(artists, 4));
 
 /**
 
 
 /* Task 5: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born the 20th century (1800-1900) */
 
-// function get20s(arr, years) {
-//   if (years > 1800) {
-//      return artists;
-//   } else if (years < 1900) {
-//       return  null;
-//   }
-// }console.log(get20s(artists,years )
+function get20s(data) {
+  // New array with final results
+  let result = [];
+  //Loop through given array
+  for (let i = 0; i < data.length; i++) {
+    // This converts the first number of the string stored to the key 'years' into an integer
+    let converted = parseInt(data[i].years);
+    //If converted string is between 1800 and 1900 add the name of the current index to the result array
+    if (converted >= 1800 && converted <= 1900) {
+      result.push(data[i].name);
+    }
+  }
+  return result;
+}
+console.log("Task 5", get20s(artists));
 
 /* Task 6: Create a function called lotsOfArt() that takes artists as an argument and returns an array with names of artists who painted more than 100 paintings */
 
-function lotsOfArt(/* Code here */) {
-
-  /* Code here */
-
+function lotsOfArt(artistsArr) {
+  let mostPaintings = [];
+  for (let i = 0; i < artistsArr.length; i++) {
+    if (artistsArr[i].paintings > 100) {
+      mostPaintings.push(artistsArr[i].name);
+    }
+  }
+  return mostPaintings;
 }
-
+console.log("Task 6", lotsOfArt(artists))
 
 /* Task 7: Create a function called `addArtist` that can accept an array of information and add it to the artists array. Then, Add a 21st artist to the array (you) with custom information! 👩‍🎨👨‍🎨
-
+ 
 id: 21
 name: Your Name Here, 
 years: Your Birth Year - current day,
@@ -281,31 +299,51 @@ genre: Web Design,
 nationality: Your Nationality Here
 bio: Add 1-2 sentences (or use lorem ipsum) "*/
 
-function addArtist(/* Code here */) {
+function addArtist(artistsArr, newInfo) {
 
-  /* Code here */
-
+  let newArtist = {
+    id: parseInt(newInfo[0]),
+    name: newInfo[1],
+    years: newInfo[2],
+    genre: newInfo[3],
+    nationality: newInfo[4],
+    bio: newInfo[5]
+  }
+  artistsArr.push(newArtist);
+  return artistsArr;
 }
+const newArtistInfo = ['20', 'Songa Mugenzi', '1997-Present', 'Web Design', 'Rwandan', 'Songa loves dance music!']
+
+console.log("Task 7", addArtist(artists, newArtistInfo));
 
 
 /* Task 8: Create a function called `checkArtist` that accepts a string (name of an artist) and checks if that artist is in the dataset. */
 
-function checkArtist(/* Code here */) {
+function checkArtist(artistName) {
+  let matchFound = false
 
-  /* Code here */
+  for (let i = 0; i < artists.length; i++) {
 
+    if (artists[i].name === artistName) {
+      matchFound = true
+    }
+
+  }
+
+  if (matchFound) {
+    return `${artistName} was found in dataset!`;
+  }
+
+  return `${artistName} was NOT found in dataset!`;
 }
-
-
-
-
+console.log("Task 8", checkArtist("Vincent Van Gogh"));
 
 // 🎨🎨 STRETCH 🎨🎨//
 
 /* STRETCH 1: Programtically console.log HTML element structure 
-
+ 
 In HTML, every artist and associated content uses the following structure: 
-
+ 
 <div id="artist">
 <div class="image">
     <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/starry-night-by-vincent-van-gogh-vincent-van-gogh.jpg"/>
@@ -315,11 +353,11 @@ In HTML, every artist and associated content uses the following structure:
 </div>
 <div class = "bio">Vincent Willem van Gogh (Dutch: [ˈvɪnsɛnt ˈʋɪləm vɑŋ ˈɣɔx] (listen); 30 March 1853 – 29 July 1890) was a Dutch Post-Impressionist painter who is among the most famous and influential figures in the history of Western art. In just over a decade he created about 2,100 artworks, including around 860 oil paintings, most of them in the last two years of his life. They include landscapes, still lifes, portraits and self-portraits, and are characterised by bold colours and dramatic, impulsive and expressive brushwork that contributed to the foundations of modern art. However, he was not commercially successful, and his suicide at 37 followed years of mental illness and poverty.</div>
 </div>
-
+ 
 Create a function called `getHTML()` that takes the parameter `data` and uses a for..in loop to format and console.log data like the example above. 
-
+ 
 The function should console.log 50 chunks of HTML code that match the structure above. 
-
+ 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
 function getHTML(/* Code here */) {
