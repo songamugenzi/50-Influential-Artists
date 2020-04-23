@@ -1,4 +1,182 @@
-/* Font in design files is Raleway */
-
-/* background-image in Design 👇
- url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/John_Martin_-_The_Plains_of_Heaven_-_Google_Art_Project.jpg/1920px-John_Martin_-_The_Plains_of_Heaven_-_Google_Art_Project.jpg'); */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Raleway', sans-serif;
+}
+body {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 62px;
+  color: #ffffff;
+}
+header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+header nav {
+  display: flex;
+  justify-content: center;
+  font-size: 2.4rem;
+  margin: 40px 0 20px 0;
+}
+header nav a {
+  text-decoration: none;
+  color: #343131;
+  margin-right: 4%;
+}
+header nav a:hover {
+  text-decoration: underline;
+  color: #FF8C00;
+}
+header nav #home-nav {
+  font-weight: 700;
+}
+section.title-container {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2% 0 3% 0;
+  background-image: url("../assets/home.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+section.artists-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 3% 0 9% 0;
+}
+section.artists-container .artist {
+  width: 40%;
+}
+section.artists-container .artist img {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+}
+section.artists-container .artist a {
+  font-size: 2.1rem;
+  display: flex;
+  justify-content: center;
+  margin: 2% 0 4% 0;
+  text-decoration: none;
+  color: #343131;
+}
+section.artists-container .artist a:hover {
+  text-decoration: underline;
+  color: #FF8C00;
+}
+section.artists-container .artist .bio {
+  font-size: 1.6rem;
+}
+.button {
+  display: block;
+  background-color: #ffffff;
+  padding: 12px 17px;
+  cursor: pointer;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  color: black;
+  margin-top: 2%;
+}
+.button:hover {
+  background-color: #ffffff;
+  color: #FF8C00;
+}

@@ -1,0 +1,30 @@
+// mixins
+.centre() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+// parametric mixin
+.custom-btn(@bg-color: @main-color, @font-color: black){
+    display: block;
+    background-color: @bg-color;
+    padding: 12px 17px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    color: @font-color;
+    margin-top: 2%;
+
+    &:hover{
+        background-color: @main-color;
+        color: @accent-color;
+    }
+    @media @phone {
+        .book-flight-btn {
+        //   width: 90%;
+        //   height: 50px;
+        //   font-size: 2.5rem;
+        }
+    }
+}
